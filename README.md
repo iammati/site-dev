@@ -13,7 +13,11 @@ Why not
 Install the package with composer using `composer req site/site-dev` and configure your `~/typo3conf/AdditionalConfiguration.php` as this:
 
 ```php
-use Site\Dev\Error\DebugExceptionHandler;
+use Site\SiteDev\Error\DebugExceptionHandler;
 
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = DebugExceptionHandler::class;
 ```
+
+Copy the `~/vendor/site/site-dev/.ignition.dist.php` file into `~/config/system/.ignition.php`.
+
+Done!
