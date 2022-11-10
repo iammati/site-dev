@@ -2,7 +2,7 @@
     "name": "site/site-dev",
     "type": "typo3-cms-extension",
     "license": "GPL-2.0-or-later",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "minimum-stability": "stable",
     "authors": [
         {
