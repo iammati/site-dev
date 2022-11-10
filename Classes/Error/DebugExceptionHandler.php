@@ -19,19 +19,28 @@ declare(strict_types=1);
 
 namespace Site\SiteDev\Error;
 
+use Composer\InstalledVersions;
 use Spatie\Ignition\Config\IgnitionConfig;
 use Spatie\Ignition\Ignition;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Error\ErrorHandler;
+use TYPO3\CMS\Core\Information\Typo3Version;
+use TYPO3\CMS\Core\Utility\PathUtility;
 
 class DebugExceptionHandler
 {
     public function __construct()
     {
-        $config = require_once Environment::getComposerRootPath() . '/config/system/.ignition.php';
+        if ((new Typo3Version())->getMajorVersion() >= 11) {
+            $composerRootPath = Environment::getComposerRootPath();
+        } else {
+            $composerRootPath = PathUtility::getCanonicalPath(InstalledVersions::getRootPackage()['install_path']);
+        }
+
+        $config = require_once "{$composerRootPath}/config/system/.ignition.php";
 
         Ignition::make()
-            ->applicationPath(Environment::getComposerRootPath())
+            ->applicationPath($composerRootPath)
             ->setConfig(new IgnitionConfig($config))
             ->register();
 
