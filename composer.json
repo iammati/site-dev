@@ -1,0 +1,31 @@
+{
+    "name": "site/site-dev",
+    "type": "typo3-cms-extension",
+    "license": "GPL-2.0-or-later",
+    "version": "0.0.1",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Mati Sediqi",
+            "email": "mati_01@icloud.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^9 || ^10 || ^11 || ^12"
+    },
+    "require-dev": {
+        "spatie/ignition": "^1.4",
+        "symfony/var-dumper": "^5.0 || ^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Site\\SiteDev\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "site_dev"
+        }
+    }
+}
